@@ -1,0 +1,16 @@
+# Byte-compiled
+__pycache__/
+
+# Vim swap
+*.swp
+
+# Omitting Logs:
+*.log
+
+# Sqlite3
+*.db
+
+# Enviroments
+.env
+*.sublime-project
+*.sublime-project

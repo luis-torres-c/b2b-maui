@@ -1,0 +1,52 @@
+version: '3'
+services:
+  b2b-maui:
+    build: .
+    restart: unless-stopped
+    environment:
+      - PROJECT_NAME=maui-oc-lapolar-manual;maui-oc-lapolar #;maui-oc-paris-manual;maui-oc-paris-rip;maui-oc-paris;maui-oc-falabella-manual;maui-oc-falabella-prosurf;maui-oc-falabella-rip;maui-oc-falabella;maui-oc-ripley-m$
+      - STORAGE_PATH=/var/client
+      - SQLITE3_PATH=/db
+      - SOURCE_PATH=/var/source/oc
+      - SOURCE_INT_PATH=/var/source-int
+      - NET_VALUES=0
+      - DASHBOARD_NAME=maui
+      - MONGODB_HOST=hans-gruber-mongo
+      - FREQUENCY_DATA_EXTRACTION=0 1-23/2 * * * 1
+      - WIVO_ENV=PRODUCTION
+      - LOGGING_LEVEL=DEBUG
+      - PASSWORDS_FILE=/var/source/passwords.txt
+    volumes:
+      - "C:/wivo/hans-gruber/db:/db"
+      - "C:/wivo/maui-wivo:/var/client"
+      - "C:/wivo/maui-int:/var/source-int"
+      - "C:/wivo/maui:/var/source"
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 50m
+
+  b2b-maui-mongo:
+    image: mongo
+    restart: unless-stopped
+    volumes:
+      - "./wivo-mongo:/data/db"
+    command: mongod --logpath /dev/null
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 50m
+    ports:
+    - 27017:27017
+volumes:
+  hans-gruber-mongo: {}
