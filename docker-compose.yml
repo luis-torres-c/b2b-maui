@@ -4,7 +4,7 @@ services:
     build: .   # build: .construye proyecto sobre carpeta actual   >>>  image/  sobre la version.
     restart: unless-stopped
     environment:
-      - PROJECT_NAME=maui-oc-lapolar-manual;maui-oc-lapolar;maui-oc-paris-manual;maui-oc-paris-rip;maui-oc-paris;maui-oc-falabella-manual;maui-oc-falabella-prosurf;maui-oc-falabella-rip;maui-oc-falabella;maui-oc-ripley;maui-oc-ripley-rip;maui-oc-ripley-manual-m$
+      - PROJECT_NAME=maui-oc-lapolar-manual;maui-oc-lapolar;maui-oc-paris-manual;maui-oc-paris-rip;maui-oc-paris;maui-oc-falabella-manual;maui-oc-falabella-prosurf;maui-oc-falabella-rip;maui-oc-falabella;maui-oc-ripley;maui-oc-ripley-rip;maui-oc-ripley-manual;;maui-oc-hites-manual;maui-oc-hites-m$
       - STORAGE_PATH=/var/client
       - SQLITE3_PATH=/db
       - SOURCE_PATH=/var/source/oc
