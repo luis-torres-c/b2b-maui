@@ -1,7 +1,7 @@
 version: '3'
 services:
   b2b-maui:
-    build: .   # build: .construye proyecto sobre carpeta actual   >>>  image/  sobre la version.
+    build: .   # build: .construye proyecto sobre carpeta actual   >>>  image/  version intalada por luis sobre la version.
     restart: unless-stopped
     environment:
       - PROJECT_NAME=maui-oc-lapolar-manual;maui-oc-lapolar;maui-oc-paris-manual;maui-oc-paris-rip;maui-oc-paris;maui-oc-falabella-manual;maui-oc-falabella-prosurf;maui-oc-falabella-rip;maui-oc-falabella;maui-oc-ripley;maui-oc-ripley-rip;maui-oc-ripley-manual;;maui-oc-hites-manual;maui-oc-hites-m$
