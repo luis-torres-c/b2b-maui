@@ -284,15 +284,14 @@ class RipleyB2BOCConnector(RipleyB2BConnector):
 
         data = []
 
-        date_past_month = (
-            datetime.datetime.strptime(
-                self.date_start,
-                "%d-%m-%Y") - relativedelta(months=1)).strftime("%d-%m-%Y")
+        
+        date_end = datetime.datetime.now().strftime("%d-%m-%Y")
+        date_start = (datetime.datetime.now() - relativedelta(days=5)).strftime("%d-%m-%Y")
 
         payload_consulta = {
             'optFecha': '0',
-            'txtFechaDesde': date_past_month,
-            'txtFechaHasta': self.date_start,
+            'txtFechaDesde': date_start,
+            'txtFechaHasta': date_end,
             'cboMetodoDistribucion': '',
             'cboTipoOCA': '',
             'cboEstado': '',
