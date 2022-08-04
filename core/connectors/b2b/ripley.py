@@ -287,7 +287,7 @@ class RipleyB2BOCConnector(RipleyB2BConnector):
         
         date_end = datetime.datetime.now().strftime("%d-%m-%Y")
         date_start = (datetime.datetime.now() - relativedelta(days=5)).strftime("%d-%m-%Y")
-
+        logger.info(f"dowloading from {date_start} to {date_end}")
         payload_consulta = {
             'optFecha': '0',
             'txtFechaDesde': date_start,
